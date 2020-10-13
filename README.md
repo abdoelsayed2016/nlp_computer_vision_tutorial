@@ -6,4 +6,4 @@ This repo provides a simple Keras implementation of RNN for Text Classification.
 
 #### [News Category Classification](https://github.com/abdoelsayed2016/nlp_computer_vision_tutorial/tree/main/News%20Category%20Classification)
 This repo provides a simple bert implementation for news Classification. Here we use the News Category Dataset from kaggle.
-<br>**_Keyword_:** Classification, _bert<br>
+<br>**_Keyword_:** Classification, bert<br>
