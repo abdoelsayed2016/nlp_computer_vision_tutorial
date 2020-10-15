@@ -22,13 +22,13 @@ if __name__ == '__main__':
 
     corpus = data['headline'].str.strip() + '. ' + data['short_description'].str.strip()
     labels = data['category'].str.strip()
-    lines = ''
+    #lines = ''
     for i, (text, label) in enumerate(zip(corpus, labels)):
         print(i)
-        lines += '{}\t{}'.format(label, re.sub(r'\n', ' ', text))+r'\n'
+        line= '{}\t{}'.format(label, re.sub(r'\n', ' ', text))
 
-        #sys.stdout.write(line + '\n')
+        sys.stdout.write(line + '\n')
 
-    with open('corpus/corpus.txt', 'a+') as file:
+    """with open('corpus/corpus.txt', 'a+') as file:
         file.write(lines)
-    file.close()
+    file.close()"""
