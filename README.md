@@ -16,4 +16,4 @@ This repo provides a simple bert implementation for news Classification. Here we
 ```
 $ python build_corpus.py --corpus corpus/News_Category_Dataset_v2.json > corpus/corpus.txt
 ```
-<br>**_Keyword_:** Classification, bert<br>
+<br>**_Keyword_:** Classification, bert,News Category Classification,RNN<br>
