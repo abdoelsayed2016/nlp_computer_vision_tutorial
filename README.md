@@ -19,4 +19,4 @@ $ python build_corpus.py --corpus corpus/News_Category_Dataset_v2.json > corpus/
 <br>**_Keyword_:** Classification, bert,News Category Classification,RNN<br>
 
 ## Computer Vision
-
+#### [EAST Text Dectecion ](https://github.com/abdoelsayed2016/nlp_computer_vision_tutorial/tree/main/EAST%20Text%20Detection)
