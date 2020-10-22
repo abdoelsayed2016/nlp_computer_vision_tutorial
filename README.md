@@ -22,3 +22,4 @@ $ python build_corpus.py --corpus corpus/News_Category_Dataset_v2.json > corpus/
 #### [EAST Text Dectecion ](https://github.com/abdoelsayed2016/nlp_computer_vision_tutorial/tree/main/EAST%20Text%20Detection)
 
 #### [Fundamentals of Digital Image and Video Processing](https://github.com/abdoelsayed2016/nlp_computer_vision_tutorial/tree/main/Image%20Processing%20and%20Video)
+#### [Generative adversarial networks](https://github.com/abdoelsayed2016/nlp_computer_vision_tutorial/tree/main/GAN)
