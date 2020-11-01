@@ -215,4 +215,30 @@ The D’Agostino’s K^2 test is available via the normaltest() SciPy function a
 
 The complete example of the D’Agostino’s K^2 test on the dataset is listed below.
 
+
+Running the example calculates the statistic and prints the statistic and p-value.
+
+The p-value is interpreted against an alpha of 5% and finds that the test dataset does not significantly deviate from normal.
+
+Statistics=0.102, p=0.950
+Sample looks Gaussian (fail to reject H0)
+
 """
+
+# D'Agostino and Pearson's Test
+from numpy.random import seed
+from numpy.random import randn
+from scipy.stats import normaltest
+# seed the random number generator
+seed(1)
+# generate univariate observations
+data = 5 * randn(100) + 50
+# normality test
+stat, p = normaltest(data)
+print('Statistics=%.3f, p=%.3f' % (stat, p))
+# interpret
+alpha = 0.05
+if p > alpha:
+	print('Sample looks Gaussian (fail to reject H0)')
+else:
+	print('Sample does not look Gaussian (reject H0)')
