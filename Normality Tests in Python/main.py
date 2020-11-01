@@ -134,3 +134,85 @@ data = 5 * randn(100) + 50
 # q-q plot
 qqplot(data, line='s')
 pyplot.show()
+
+
+"""
+Statistical Normality Tests
+
+
+There are many statistical tests that we can use to quantify whether a sample of data looks as though it was drawn from a Gaussian distribution.
+
+Each test makes different assumptions and considers different aspects of the data.
+
+We will look at 3 commonly used tests in this section that you can apply to your own data samples.
+
+Interpretation of a Test
+Before you can apply the statistical tests, you must know how to interpret the results.
+
+Each test will return at least two things:
+
+Statistic: A quantity calculated by the test that can be interpreted in the context of the test via comparing it to critical values from the distribution of the test statistic.
+p-value: Used to interpret the test, in this case whether the sample was drawn from a Gaussian distribution.
+Each test calculates a test-specific statistic. This statistic can aid in the interpretation of the result, although it may require a deeper proficiency with statistics and a deeper knowledge of the specific statistical test. Instead, the p-value can be used to quickly and accurately interpret the statistic in practical applications.
+
+The tests assume that that the sample was drawn from a Gaussian distribution. Technically this is called the null hypothesis, or H0. A threshold level is chosen called alpha, typically 5% (or 0.05), that is used to interpret the p-value.
+
+In the SciPy implementation of these tests, you can interpret the p value as follows.
+
+p <= alpha: reject H0, not normal.
+p > alpha: fail to reject H0, normal.
+This means that, in general, we are seeking results with a larger p-value to confirm that our sample was likely drawn from a Gaussian distribution.
+
+A result above 5% does not mean that the null hypothesis is true. It means that it is very likely true given available evidence. The p-value is not the probability of the data fitting a Gaussian distribution; it can be thought of as a value that helps us interpret the statistical test.
+
+Shapiro-Wilk Test
+The Shapiro-Wilk test evaluates a data sample and quantifies how likely it is that the data was drawn from a Gaussian distribution, named for Samuel Shapiro and Martin Wilk.
+
+In practice, the Shapiro-Wilk test is believed to be a reliable test of normality, although there is some suggestion that the test may be suitable for smaller samples of data, e.g. thousands of observations or fewer.
+
+The shapiro() SciPy function will calculate the Shapiro-Wilk on a given dataset. The function returns both the W-statistic calculated by the test and the p-value.
+
+The complete example of performing the Shapiro-Wilk test on the dataset is listed below.
+
+Running the example first calculates the test on the data sample, then prints the statistic and calculated p-value.
+
+The p-value is interested and finds that the data is likely drawn from a Gaussian distribution.
+
+Statistics=0.992, p=0.822
+Sample looks Gaussian (fail to reject H0)
+
+
+"""
+
+
+
+# Shapiro-Wilk Test
+from numpy.random import seed
+from numpy.random import randn
+from scipy.stats import shapiro
+# seed the random number generator
+seed(1)
+# generate univariate observations
+data = 5 * randn(100) + 50
+# normality test
+stat, p = shapiro(data)
+print('Statistics=%.3f, p=%.3f' % (stat, p))
+# interpret
+alpha = 0.05
+if p > alpha:
+	print('Sample looks Gaussian (fail to reject H0)')
+else:
+	print('Sample does not look Gaussian (reject H0)')
+
+
+"""
+D’Agostino’s K^2 Test
+The D’Agostino’s K^2 test calculates summary statistics from the data, namely kurtosis and skewness, to determine if the data distribution departs from the normal distribution, named for Ralph D’Agostino.
+
+Skew is a quantification of how much a distribution is pushed left or right, a measure of asymmetry in the distribution.
+Kurtosis quantifies how much of the distribution is in the tail. It is a simple and commonly used statistical test for normality.
+The D’Agostino’s K^2 test is available via the normaltest() SciPy function and returns the test statistic and the p-value.
+
+The complete example of the D’Agostino’s K^2 test on the dataset is listed below.
+
+"""
